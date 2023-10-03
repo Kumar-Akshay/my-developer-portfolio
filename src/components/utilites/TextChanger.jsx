@@ -5,9 +5,17 @@ const TextChanger = (props) => {
   const [currentText, setCurrentText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
 
+  const getRandomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
+
   useEffect(() => {
     const delay = charIndex < props.texts[currentIndex].length ? props.speed : 3000; // Delay between characters or phrases
-    console.log(delay);
     const intervalId = setTimeout(() => {
       if (charIndex < props.texts[currentIndex].length) 
       {
@@ -32,8 +40,8 @@ const TextChanger = (props) => {
   const h1Style = {
     width: currentText ? 'auto' : '120px', // Adjust the width as needed
     overflow: 'hidden',
+    color: getRandomColor(), 
   };
-
 
   return (
     <div>
