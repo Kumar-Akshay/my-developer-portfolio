@@ -1,0 +1,20 @@
+<section class="container mx-auto px-4 py-16">
+  <h2 class="text-3xl font-bold mb-8 text-center">Professional Experience</h2>
+  <div class="max-w-4xl mx-auto space-y-8">
+    <div *ngFor="let job of experience; let i = index" [ngClass]="{'bg-gray-300': i === 0, 'bg-gray': i % 2 !== 0}"
+      class="p-6 rounded-lg shadow">
+      <div class="flex flex-col md:flex-row justify-between mb-4">
+        <div>
+          <h3 class="text-xl font-bold text-blue-600">{{job.position}}</h3>
+          <p class="text-lg">{{job.company}}</p>
+        </div>
+        <p class="text-gray-600">{{job.period}}</p>
+      </div>
+      <ul class="list-disc pl-5 space-y-2">
+        <li *ngFor="let point of job.points" class="text-gray-700">
+          {{point}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
