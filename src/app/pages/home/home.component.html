@@ -1,27 +1,83 @@
-<section class="container mx-auto px-4 py-16">
-  <div class="text-center max-w-3xl mx-auto">
-    <img src="assets/profile.jpeg" alt="Akshay Kumar" class="w-48 h-48 rounded-full mx-auto mb-8 shadow-lg">
-    <h1 class="text-4xl font-bold mb-4">Akshay Kumar</h1>
-    <h2 class="text-2xl text-gray-600 mb-8">Full-Stack Software Engineer - .NET Developer</h2>
-    <p class="text-gray-600 mb-8">
+<section class="hero-section">
+  <div class="floating-icons">
+    <!-- Backend -->
+    <i class="devicon-dotnetcore-plain colored"></i>
+    <i class="devicon-csharp-plain colored"></i>
+    <i class="devicon-microsoftsqlserver-plain colored"></i>
+    <i class="devicon-postgresql-plain colored"></i>
+    <i class="devicon-redis-plain colored"></i>
+    <i class="devicon-mongodb-plain colored"></i>
+    
+    <!-- Cloud & DevOps -->
+    <i class="devicon-azure-plain colored"></i>
+    <i class="devicon-docker-plain colored"></i>
+    <i class="devicon-kubernetes-plain colored"></i>
+    <i class="devicon-jenkins-plain colored"></i>
+    <i class="devicon-amazonwebservices-original colored"></i>
+    <i class="devicon-googlecloud-plain colored"></i>
+    <i class="devicon-terraform-plain colored"></i>
+    
+    <!-- Frontend -->
+    <i class="devicon-typescript-plain colored"></i>
+    <i class="devicon-angularjs-plain colored"></i>
+    <i class="devicon-javascript-plain colored"></i>
+    <i class="devicon-react-original colored"></i>
+    <i class="devicon-html5-plain colored"></i>
+    <i class="devicon-css3-plain colored"></i>
+    <i class="devicon-sass-original colored"></i>
+    
+    <!-- Programming Languages -->
+    <i class="devicon-python-plain colored"></i>
+    <i class="devicon-java-plain colored"></i>
+    <i class="devicon-go-original-wordmark colored"></i>
+    <i class="devicon-rust-plain colored"></i>
+    
+    <!-- Tools & Others -->
+    <i class="devicon-git-plain colored"></i>
+    <i class="devicon-github-original colored"></i>
+    <i class="devicon-nodejs-plain colored"></i>
+    <i class="devicon-graphql-plain colored"></i>
+    <i class="devicon-rabbitmq-original colored"></i>
+    <i class="devicon-kafka-plain colored"></i>
+    
+    <!-- OS & Shell -->
+    <i class="devicon-linux-plain colored"></i>
+    <i class="devicon-ubuntu-plain colored"></i>
+    <i class="devicon-bash-plain colored"></i>
+    <i class="devicon-vim-plain colored"></i>
+  </div>
+  <div class="content-wrapper">
+    <div class="profile-container">
+      <img src="assets/profile.jpeg" alt="Akshay Kumar" class="profile-image">
+      <div class="name-title">
+        <h1>Akshay Kumar</h1>
+        <h2>Full-Stack Software Engineer</h2>
+        <span class="specialty">.NET Developer</span>
+      </div>
+    </div>
+    
+    <p class="bio">
       Experienced Full-Stack Developer specializing in .NET, Azure, and modern web technologies.
     </p>
-    <div class="flex justify-center space-x-4 mb-8">
-      <a routerLink="/contact"
-        class="bg-gray-600 text-white px-8 py-3 rounded-full hover:bg-gray-700 transition-colors">
+    
+    <div class="button-group primary">
+      <a routerLink="/contact" class="btn primary-btn">
         Get in Touch
       </a>
-      <a routerLink="/experience"
-        class="bg-gray-600 text-white px-8 py-3 rounded-full hover:bg-gray-700 transition-colors">
+      <a routerLink="/experience" class="btn primary-btn">
         Experience
       </a>
     </div>
-    <div class="flex justify-center space-x-4 mb-8">
-      <a href="assets/CV_AkshayKumar.pdf" download
-        class="bg-gray-600 text-white px-8 py-3 rounded-full hover:bg-gray-700 transition-colors">
-        Download Resume
+    
+    <div class="button-group secondary">
+      <a href="assets/CV_AkshayKumar.pdf" download class="btn secondary-btn">
+        <span>Download Resume</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="download-icon">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
       </a>
     </div>
-
   </div>
 </section>
