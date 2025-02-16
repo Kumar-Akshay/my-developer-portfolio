@@ -1,0 +1,73 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+header:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Add a spacer to prevent content from hiding behind the fixed header */
+:host {
+  display: block;
+  height: 72px; /* Increased height to accommodate mobile menu button */
+}
+
+@media (max-width: 768px) {
+  :host {
+    height: auto; /* Allow header to expand for mobile menu */
+  }
+}
+
+/* Navigation link animations */
+nav a {
+  position: relative;
+  padding-bottom: 2px;
+  animation: none !important;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #60A5FA; /* blue-400 */
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Logo animation */
+h1 {
+  transition: transform 0.3s ease;
+}
+
+h1:hover {
+  transform: scale(1.05);
+}
+
+/* Active link style */
+.active-link {
+  color: #60A5FA; /* blue-400 */
+  font-weight: 500;
+}
+
+/* Mobile menu animations */
+.md\:hidden {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Remove animation-pulse from nav items to avoid conflict with underline animation */
+nav a {
+  animation: none !important;
+}
