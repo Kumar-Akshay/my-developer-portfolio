@@ -1,1 +1,44 @@
-<p>testimonials works!</p>
+<div class="shared-background">
+  <section class="container mx-auto px-4 py-8 font-poppins">
+    <h2 class="text-4xl font-bold mb-12 text-center text-white font-bold animate-fade-in">Client Testimonials</h2>
+    <div class="max-w-4xl mx-auto">
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-0 md:left-1/2 h-full w-0.5 bg-gradient-to-b from-indigo-200 to-purple-200 transform -translate-x-1/2 animate-grow-height"></div>
+        
+        <div class="space-y-16">
+          <article *ngFor="let testimonial of testimonials.slice(0, 3); let i = index" 
+                  class="relative flex flex-col md:flex-row items-center animate-slide-in"
+                  [ngClass]="{'md:flex-row-reverse': i % 2 !== 0}"
+                  [style.animation-delay]="getAnimationDelay(i)">
+            <!-- Timeline dot -->
+            <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transform -translate-x-1/2 animate-pulse-gradient"></div>
+            
+            <!-- Content -->
+            <div class="w-full md:w-5/12 ml-8 md:ml-0 card-container"
+                 [ngClass]="{'md:mr-8': i % 2 === 0, 'md:ml-8': i % 2 !== 0}">
+              <div class="glass-card bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-up card-swap"
+                   [style.animation-delay]="getSwapAnimationDelay(i)">
+                <div class="mb-4">
+                  <div class="flex items-center gap-3 mb-2">
+                    <i [class]="testimonial.icon + ' text-2xl text-indigo-600'"></i>
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">{{ testimonial.title }}</h3>
+                  </div>
+                  <p class="text-indigo-500 font-medium">{{ testimonial.project }}</p>
+                </div>
+                <p class="text-gray-700 italic mb-4">{{ testimonial.text }}</p>
+                <a [href]="testimonial.url" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition-colors">
+                  <span>View Review</span>
+                  <i class="fas fa-external-link-alt ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

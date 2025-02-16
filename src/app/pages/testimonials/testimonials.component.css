@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* New styling for testimonials */
+.testimonial-scroll-container {
+    display: flex; /* Enable flexbox for horizontal layout */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 10px; /* Padding for the container */
+    border-radius: 8px; /* Rounded corners */
+    max-width: 100%; /* Set max width */
+}
+
+.testimonial-wrapper {
+    display: flex; /* Enable flexbox for the wrapper */
+    animation: scroll 10s linear infinite; /* Animation for scrolling */
+}
+
+.testimonial-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 10px; /* Margin between cards */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Set width for medium card */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: #ece8e8;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: #555;
+}
+
+.testimonial-title {
+    font-size: 1.2em;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.testimonial-project {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 5px;
+}
+
+.testimonial-divider {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 10px 0; /* Space around the line */
+}
+
+/* Animation for scrolling */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%); /* Scroll left */
+    }
+}
+
+.testimonial-card {
+    background-color: white;
+}
+
+@keyframes swapCard {
+  0% {
+    transform: perspective(1000px) rotateY(0);
+    opacity: 1;
+  }
+  20% {
+    transform: perspective(1000px) rotateY(90deg);
+    opacity: 0.3;
+  }
+  80% {
+    transform: perspective(1000px) rotateY(-90deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: perspective(1000px) rotateY(0);
+    opacity: 1;
+  }
+}
+
+.card-swap {
+  animation: swapCard 2s ease-in-out infinite;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  animation-play-state: paused;
+}
+
+.card-swap.animate {
+  animation-play-state: running;
+}
+
+.card-container {
+  perspective: 1000px;
+}
+
+.glass-card {
+  height: 300px; /* Fixed height for all cards */
+  display: flex;
+  flex-direction: column;
+}
+
+.glass-card .mb-4 {
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.text-gray-700.italic.mb-4 {
+  flex: 1;
+  overflow-y: auto; /* Enable scrolling for overflow text */
+  /* Style the scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.5) transparent;
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+.text-gray-700.italic.mb-4::-webkit-scrollbar {
+  width: 6px;
+}
+
+.text-gray-700.italic.mb-4::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.text-gray-700.italic.mb-4::-webkit-scrollbar-thumb {
+  background-color: rgba(99, 102, 241, 0.5);
+  border-radius: 3px;
+}
+
+.glass-card a {
+  flex-shrink: 0; /* Prevent link from shrinking */
+  margin-top: auto; /* Push link to bottom */
+}
