@@ -5,11 +5,12 @@ import { ExperienceComponent } from '../experience/experience.component';
 import { SkillsComponent } from '../skills/skills.component';
 import { ContactComponent } from '../contact/contact.component';
 import { ActiveSectionService } from './../../services/active-section.service';
+import { TestimonialsComponent } from "../testimonials/testimonials.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule, ExperienceComponent, SkillsComponent, ContactComponent],
+  imports: [CommonModule, RouterModule, ExperienceComponent, SkillsComponent, TestimonialsComponent,ContactComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -31,7 +32,7 @@ export class HomeComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     // Cache section elements for consistent scrolling
-    const sections = ['experience', 'skills', 'contact'];
+    const sections = ['experience', 'skills', 'testimonials', 'contact'];
     sections.forEach(section => {
       const element = this.elRef.nativeElement.querySelector(`#${section}`);
       if (element) {

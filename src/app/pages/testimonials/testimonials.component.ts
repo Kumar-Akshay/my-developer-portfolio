@@ -76,7 +76,7 @@ export class TestimonialsComponent implements OnInit {
       project,
       url,
       icon,
-      animationDelay: `${this.testimonials.length * 0.1}s`
+      animationDelay: `${this.testimonials.length * 0.3}s`
     });
   }
 
@@ -95,7 +95,7 @@ export class TestimonialsComponent implements OnInit {
           this.currentIndex = (this.currentIndex + 1) % this.testimonials.length;
         }, 1000); // Match animation duration
       }
-    }, 2500); // Time between each card swap
+    }, 3000); // Time between each card swap
   }
 
   updateCardContent(index: number) {
