@@ -1,11 +1,17 @@
 <section class="container mx-auto px-4 py-16">
   <h2 class="text-3xl font-bold mb-8 text-center">Technical Skills</h2>
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-    <div *ngFor="let category of skillCategories" class="bg-white p-6 rounded-lg shadow">
-      <h3 class="text-xl font-bold mb-4 text-blue-600">{{category.name}}</h3>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+    <div *ngFor="let category of skillCategories" 
+         class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+      <div class="flex items-center gap-2 mb-4">
+        <fa-icon [icon]="category.icon" [class]="category.color + ' text-xl'"></fa-icon>
+        <h3 class="text-xl font-bold" [class]="category.color">{{category.name}}</h3>
+      </div>
       <div class="flex flex-wrap gap-2">
-        <span *ngFor="let skill of category.skills" class="px-3 py-1 bg-gray-100 rounded-full text-gray-700 text-sm">
-          {{skill}}
+        <span *ngFor="let skill of category.skills" 
+              class="flex items-center gap-1 px-3 py-1 bg-gray-100 rounded-full text-gray-700 text-sm hover:bg-blue-50 transition-colors duration-300 cursor-default">
+          <fa-icon [icon]="skill.icon" [class]="skill.color"></fa-icon>
+          {{skill.name}}
         </span>
       </div>
     </div>
