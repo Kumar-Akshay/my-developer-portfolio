@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+article {
+  position: relative;
+}
+
+article:hover .glass-card {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(76, 29, 149, 0.1), 0 10px 10px -5px rgba(76, 29, 149, 0.04);
+}
+
+.glass-card {
+  transition: all 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 768px) {
+  article {
+    padding-left: 2rem;
+  }
+  
+  .absolute.left-0 {
+    left: 0;
+  }
+}
+
+/* Animation for timeline dots */
+[class*="bg-gradient-to-r"].rounded-full {
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+  animation: gradientPulse 2s infinite;
+}
+
+@keyframes gradientPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(99, 102, 241, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+  }
+}
+
+/* Gradient animation */
+.bg-gradient-to-r {
+  background-size: 200% 200%;
+  animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Add some depth to cards */
+.glass-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: rotate(30deg);
+  transition: transform 0.5s;
+}
+
+.glass-card:hover::before {
+  transform: rotate(30deg) translateX(50%);
+}
+
+/* New Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes growHeight {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-grow-height {
+  animation: growHeight 1.5s ease-out forwards;
+}
+
+/* Enhanced gradient pulse animation */
+.animate-pulse-gradient {
+  animation: gradientPulse 2s infinite, fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes gradientPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+    transform: scale(1) translate(-50%, 0);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+    transform: scale(1.1) translate(-50%, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+    transform: scale(1) translate(-50%, 0);
+  }
+}
+
+/* Enhanced glass card hover effect */
+.glass-card {
+  transform: perspective(1000px) rotateX(0deg);
+  transition: all 0.3s ease-out;
+}
+
+.glass-card:hover {
+  transform: perspective(1000px) rotateX(2deg) translateY(-5px);
+}
+
+/* Shimmer effect */
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-15deg);
+  animation: shimmer 6s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  50%, 100% {
+    transform: translateX(100%) skewX(-15deg);
+  }
+}

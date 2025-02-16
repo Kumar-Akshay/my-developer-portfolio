@@ -1,20 +1,40 @@
-<section class="container mx-auto px-4 py-16">
-  <h2 class="text-3xl font-bold mb-8 text-center">Professional Experience</h2>
-  <div class="max-w-4xl mx-auto space-y-8">
-    <div *ngFor="let job of experience; let i = index" [ngClass]="{'bg-gray-300': i === 0, 'bg-gray': i % 2 !== 0}"
-      class="p-6 rounded-lg shadow">
-      <div class="flex flex-col md:flex-row justify-between mb-4">
-        <div>
-          <h3 class="text-xl font-bold text-blue-600">{{job.position}}</h3>
-          <p class="text-lg">{{job.company}}</p>
-        </div>
-        <p class="text-gray-600">{{job.period}}</p>
+<section class="container mx-auto px-4 py-16 font-poppins">
+  <h2 class="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text animate-fade-in">Career Journey</h2>
+  <div class="max-w-5xl mx-auto">
+    <div class="relative">
+      <!-- Timeline line -->
+      <div class="absolute left-0 md:left-1/2 h-full w-0.5 bg-gradient-to-b from-indigo-200 to-purple-200 transform -translate-x-1/2 animate-grow-height"></div>
+      
+      <div class="space-y-16">
+        <article *ngFor="let job of experience; let i = index" 
+                class="relative flex flex-col md:flex-row items-center animate-slide-in"
+                [ngClass]="{'md:flex-row-reverse': i % 2 !== 0}"
+                [style.animation-delay]="job.animationDelay">
+          <!-- Timeline dot -->
+          <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transform -translate-x-1/2 animate-pulse-gradient"></div>
+          
+          <!-- Content -->
+          <div class="w-full md:w-5/12 ml-8 md:ml-0"
+               [ngClass]="{'md:mr-8': i % 2 === 0, 'md:ml-8': i % 2 !== 0}">
+            <div class="glass-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-up"
+                 [style.animation-delay]="getAnimationDelay(i)">
+              <div class="mb-4">
+                <h3 class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">{{ job.position }}</h3>
+                <p class="text-xl font-semibold text-gray-800">{{ job.company }}</p>
+                <p class="text-indigo-500 font-medium">{{ job.period }}</p>
+              </div>
+              <ul class="space-y-3">
+                <li *ngFor="let point of job.points; let j = index" 
+                    class="flex items-start animate-fade-in"
+                    [style.animation-delay]="getPointAnimationDelay(i, j)">
+                  <span class="inline-block w-2 h-2 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full mt-2 mr-3"></span>
+                  <span class="text-gray-700">{{ point }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
       </div>
-      <ul class="list-disc pl-5 space-y-2">
-        <li *ngFor="let point of job.points" class="text-gray-700">
-          {{point}}
-        </li>
-      </ul>
     </div>
   </div>
 </section>
