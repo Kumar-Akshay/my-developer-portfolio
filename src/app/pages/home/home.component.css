@@ -119,13 +119,32 @@
   background: linear-gradient(135deg, #fff 0%, #d4d4d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .name-title h2 {
   font-size: 1.5rem;
   font-weight: 500;
-  color: #a3a3a3;
+  color: white;
   margin-bottom: 0.5rem;
+  animation: typing 2s steps(30, end) 2s forwards, blink-caret 0.75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.name-title span {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #d4d4d4;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(30, end) 4s forwards, blink-caret 0.75s step-end forwards;
 }
 
 .specialty {
@@ -137,6 +156,9 @@
   color: #d4d4d4;
   font-weight: bold;
   transition: all 0.3s ease;
+  animation: typing 2s steps(30, end) 4s forwards, blink-caret 0.75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .specialty:hover {
@@ -148,7 +170,7 @@
 .bio {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #a3a3a3;
+  color: white;
   margin-bottom: 2.5rem;
   max-width: 600px;
   margin-left: auto;
@@ -184,13 +206,13 @@
 }
 
 .secondary-btn {
-  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .secondary-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
   transform: translateY(-2px);
 }
 
@@ -302,4 +324,106 @@
 .content-wrapper {
   position: relative;
   z-index: 2;
+}
+
+.scroll-nav {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Add transition for opacity and transform */
+}
+
+.scroll-nav.visible {
+  opacity: 1; /* Show when visible */
+  transform: translateY(-50%); /* Maintain position */
+}
+
+.scroll-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.scroll-nav li {
+  margin: 10px 0;
+}
+
+.scroll-nav a {
+  text-decoration: none;
+  color: #333;
+  position: relative;
+  padding: 5px 10px;
+  transition: color 0.3s, transform 0.3s; /* Add transform transition */
+}
+
+.scroll-nav a:hover {
+  color: #60A5FA; /* Change color on hover */
+  transform: scale(1.1); /* Scale effect on hover */
+}
+
+.scroll-nav a.active {
+  color: #60A5FA; /* Active link color */
+  font-weight: bold; /* Make active link bold */
+}
+
+.side-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 0;
+  background-color: #60A5FA; /* Line color */
+  transition: height 0.3s;
+}
+
+.scroll-link.active + .side-line {
+  height: 100%; /* Adjust height based on active link */
+}
+
+/* Keyframes for typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Keyframes for blinking caret */
+@keyframes blink-caret {
+  0%, 100% { border-right: 2px solid transparent; } /* Hide cursor at the end */
+  50% { border-right: 2px solid white; }
+}
+
+/* Adjust blink-caret animation to stop after typing */
+.name-title h1 {
+  animation: typing 2s steps(30, end), blink-caret 0.75s step-end forwards; /* Stop blinking after typing */
+}
+
+.name-title h2 {
+  animation: typing 2s steps(30, end) 2s forwards, blink-caret 0.75s step-end forwards; /* Stop blinking after typing */
+}
+
+.specialty {
+  animation: typing 2s steps(30, end) 4s forwards, blink-caret 0.75s step-end infinite; /* Keep blinking for specialty */
+}
+
+@keyframes colorReflection {
+  0% { background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 0, 0, 0.3), rgba(255, 165, 0, 0.3)); }
+  25% { background: linear-gradient(135deg, rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 255, 255, 0.3)); }
+  50% { background: linear-gradient(135deg, rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3), rgba(75, 0, 130, 0.3)); }
+  75% { background: linear-gradient(135deg, rgba(0, 0, 255, 0.3), rgba(255, 0, 255, 0.3), rgba(255, 255, 0, 0.3)); }
+  100% { background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 0, 0, 0.3), rgba(255, 165, 0, 0.3)); }
+}
+
+.name-title span {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(30, end) 4s forwards, blink-caret 0.75s step-end forwards, colorReflection 5s infinite;
 }

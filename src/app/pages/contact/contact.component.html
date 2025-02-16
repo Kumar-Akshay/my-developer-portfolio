@@ -1,39 +1,27 @@
-<section class="container mx-auto px-4 py-16">
-  <div class="max-w-2xl mx-auto">
-    <h2 class="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
-    <div class="bg-white p-8 rounded-lg shadow">
-      <div class="mb-8 text-center">
-        <p class="mb-2">
-          <i class="fas fa-envelope mr-2"></i>
-          <a href="mailto:Akshaymalhi012@gmail.com" class="text-blue-600 hover:text-blue-800">
-              Mail
-          </a>
-        </p>
-        <p>
-          <i class="fas fa-map-marker-alt mr-2"></i>
-          Middlesbrough, United Kingdom
-        </p>
-      </div>
-      <form (ngSubmit)="onSubmit()" class="space-y-6">
-        <div>
-          <label for="name" class="block text-gray-700 mb-2">Name</label>
-          <input type="text" id="name" [(ngModel)]="formData.name" name="name"
-            class="w-full px-4 py-2 border rounded focus:ring-2 focus:ring-blue-500">
+<div class="shared-background">
+  <section class="container mx-auto px-4 py-16 font-poppins">
+    <h2 class="text-4xl font-bold mb-12 text-center text-white font-new-style animate-fade-in">Contact Us</h2>
+    <div class="max-w-3xl mx-auto">
+      <form (ngSubmit)="onSubmit()" class="space-y-8">
+        <div class="flex flex-col space-y-4">
+          <label for="name" class="text-lg font-semibold text-white">Name</label>
+          <input type="text" id="name" name="name" [(ngModel)]="formData.name" required
+                 class="p-4 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300">
         </div>
-        <div>
-          <label for="email" class="block text-gray-700 mb-2">Email</label>
-          <input type="email" id="email" [(ngModel)]="formData.email" name="email"
-            class="w-full px-4 py-2 border rounded focus:ring-2 focus:ring-blue-500">
+        <div class="flex flex-col space-y-4">
+          <label for="email" class="text-lg font-semibold text-white">Email</label>
+          <input type="email" id="email" name="email" [(ngModel)]="formData.email" required
+                 class="p-4 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300">
         </div>
-        <div>
-          <label for="message" class="block text-gray-700 mb-2">Message</label>
-          <textarea id="message" [(ngModel)]="formData.message" name="message" rows="5"
-            class="w-full px-4 py-2 border rounded focus:ring-2 focus:ring-blue-500"></textarea>
+        <div class="flex flex-col space-y-4">
+          <label for="message" class="text-lg font-semibold text-white">Message</label>
+          <textarea id="message" name="message" [(ngModel)]="formData.message" rows="6" required
+                    class="p-4 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"></textarea>
         </div>
-        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition-colors">
+        <button type="submit" class="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
           Send Message
         </button>
       </form>
     </div>
-  </div>
-</section>
+  </section>
+</div>

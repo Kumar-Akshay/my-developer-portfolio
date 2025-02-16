@@ -2,6 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+// Define an interface for form data
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -10,7 +17,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  formData = {
+  formData: FormData = {
     name: '',
     email: '',
     message: ''
@@ -19,6 +26,11 @@ export class ContactComponent {
   onSubmit() {
     console.log('Form submitted:', this.formData);
     // Add form submission logic here
+    this.resetForm(); // Call the reset method
+  }
+
+  // Method to reset form data
+  private resetForm() {
     this.formData = {
       name: '',
       email: '',
